@@ -1,0 +1,286 @@
+{
+  "/EshopStorageStack": [
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "<anonymous> (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/bin/infra.ts:15:22)",
+        "<anonymous> (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/bin/infra.ts:25:2)",
+        "...node internals, tsx..."
+      ]
+    },
+    {
+      "type": "aws:cdk:templateFile",
+      "data": "EshopStorageStack.template.json"
+    }
+  ],
+  "/EshopStorageStack/ImagesBucket": [
+    {
+      "type": "aws:cdk:analytics:construct",
+      "data": {
+        "bucketName": "*",
+        "blockPublicAccess": "*",
+        "removalPolicy": "destroy",
+        "autoDeleteObjects": true,
+        "cors": [
+          {
+            "allowedMethods": [
+              "GET"
+            ],
+            "allowedOrigins": "*",
+            "allowedHeaders": "*"
+          }
+        ]
+      }
+    },
+    {
+      "type": "aws:cdk:analytics:method",
+      "data": {
+        "addCorsRule": [
+          {
+            "allowedMethods": [
+              "GET"
+            ],
+            "allowedOrigins": "*",
+            "allowedHeaders": "*"
+          },
+          "*",
+          "*"
+        ]
+      }
+    }
+  ],
+  "/EshopStorageStack/Custom::S3AutoDeleteObjectsCustomResourceProvider": [
+    {
+      "type": "aws:cdk:is-custom-resource-handler-customResourceProvider",
+      "data": true
+    }
+  ],
+  "/EshopStorageStack/ImagesDistribution": [
+    {
+      "type": "aws:cdk:analytics:construct",
+      "data": {
+        "defaultBehavior": {
+          "origin": "*",
+          "viewerProtocolPolicy": "redirect-to-https",
+          "cachePolicy": "*"
+        },
+        "comment": "*"
+      }
+    }
+  ],
+  "/EshopStorageStack/ImagesBucketName": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "ImagesBucketName"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "new EshopStorageStack (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/lib/storage-stack.ts:38:5)",
+        "<anonymous> (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/bin/infra.ts:15:22)",
+        "<anonymous> (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/bin/infra.ts:25:2)",
+        "...node internals, tsx..."
+      ]
+    }
+  ],
+  "/EshopStorageStack/ImagesCdnUrl": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "ImagesCdnUrl"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "new EshopStorageStack (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/lib/storage-stack.ts:39:5)",
+        "<anonymous> (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/bin/infra.ts:15:22)",
+        "<anonymous> (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/bin/infra.ts:25:2)",
+        "...node internals, tsx..."
+      ]
+    }
+  ],
+  "/EshopStorageStack/BootstrapVersion": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "BootstrapVersion"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...aws-cdk-lib...",
+        "(no user code in 10 frames, use --stack-trace-limit to capture more)"
+      ]
+    }
+  ],
+  "/EshopStorageStack/CheckBootstrapVersion": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "CheckBootstrapVersion"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...aws-cdk-lib...",
+        "(no user code in 10 frames, use --stack-trace-limit to capture more)"
+      ]
+    }
+  ],
+  "/EshopStorageStack/ImagesBucket/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "ImagesBucket1E86AFB2"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Bucket2 in aws-cdk-lib...",
+        "new EshopStorageStack (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/lib/storage-stack.ts:13:26)",
+        "<anonymous> (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/bin/infra.ts:15:22)",
+        "<anonymous> (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/bin/infra.ts:25:2)",
+        "...node internals, tsx..."
+      ]
+    },
+    {
+      "type": "aws:cdk:analytics:mixin",
+      "data": {
+        "mixin": "aws-cdk-lib.aws_s3.mixins.BucketAutoDeleteObjects"
+      }
+    }
+  ],
+  "/EshopStorageStack/ImagesBucket/Policy": [
+    {
+      "type": "aws:cdk:analytics:construct",
+      "data": {
+        "bucket": "*"
+      }
+    }
+  ],
+  "/EshopStorageStack/ImagesBucket/AutoDeleteObjectsCustomResource": [
+    {
+      "type": "aws:cdk:analytics:construct",
+      "data": "*"
+    }
+  ],
+  "/EshopStorageStack/Custom::S3AutoDeleteObjectsCustomResourceProvider/Role": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "CustomS3AutoDeleteObjectsCustomResourceProviderRole3B1BD092"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...aws-cdk-lib...",
+        "(no user code in 10 frames, use --stack-trace-limit to capture more)"
+      ]
+    }
+  ],
+  "/EshopStorageStack/Custom::S3AutoDeleteObjectsCustomResourceProvider/Handler": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "CustomS3AutoDeleteObjectsCustomResourceProviderHandler9D90184F"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...aws-cdk-lib...",
+        "(no user code in 10 frames, use --stack-trace-limit to capture more)"
+      ]
+    }
+  ],
+  "/EshopStorageStack/ImagesDistribution/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "ImagesDistribution2BC0FCCE"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Distribution2 in aws-cdk-lib...",
+        "new EshopStorageStack (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/lib/storage-stack.ts:27:26)",
+        "<anonymous> (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/bin/infra.ts:15:22)",
+        "<anonymous> (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/bin/infra.ts:25:2)",
+        "...node internals, tsx..."
+      ]
+    }
+  ],
+  "/EshopStorageStack/CDKMetadata/Default": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "CDKMetadata"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...aws-cdk-lib, node internals...",
+        "(no user code in 10 frames, use --stack-trace-limit to capture more)"
+      ]
+    }
+  ],
+  "/EshopStorageStack/Publish/Output{\"Fn::GetAtt\":[\"ImagesDistribution2BC0FCCE\",\"DomainName\"]}": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "PublishOutputFnGetAttImagesDistribution2BC0FCCEDomainNameA2DA643B"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...aws-cdk-lib, node internals...",
+        "(no user code in 10 frames, use --stack-trace-limit to capture more)"
+      ]
+    }
+  ],
+  "/EshopStorageStack/ImagesBucket/Policy/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "ImagesBucketPolicy5ED12B6C"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Bucket2 in aws-cdk-lib...",
+        "new EshopStorageStack (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/lib/storage-stack.ts:13:26)",
+        "<anonymous> (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/bin/infra.ts:15:22)",
+        "<anonymous> (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/bin/infra.ts:25:2)"
+      ]
+    },
+    {
+      "type": "aws:cdk:analytics:mixin",
+      "data": {
+        "mixin": "aws-cdk-lib.aws_s3.mixins.BucketPolicyStatements"
+      }
+    }
+  ],
+  "/EshopStorageStack/ImagesBucket/AutoDeleteObjectsCustomResource/Default": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "ImagesBucketAutoDeleteObjectsCustomResource1A749259"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...aws-cdk-lib...",
+        "(no user code in 10 frames, use --stack-trace-limit to capture more)"
+      ]
+    }
+  ],
+  "/EshopStorageStack/ImagesDistribution/Origin1/S3OriginAccessControl": [
+    {
+      "type": "aws:cdk:analytics:construct",
+      "data": "*"
+    }
+  ],
+  "/EshopStorageStack/ImagesDistribution/Origin1/S3OriginAccessControl/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "ImagesDistributionOrigin1S3OriginAccessControl19A02DFF"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Distribution2 in aws-cdk-lib...",
+        "new EshopStorageStack (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/lib/storage-stack.ts:27:26)",
+        "<anonymous> (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/bin/infra.ts:15:22)",
+        "<anonymous> (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/bin/infra.ts:25:2)"
+      ]
+    }
+  ]
+}

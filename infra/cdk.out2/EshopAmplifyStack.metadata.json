@@ -1,0 +1,132 @@
+{
+  "/EshopAmplifyStack": [
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "<anonymous> (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/bin/infra.ts:19:1)",
+        "<anonymous> (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/bin/infra.ts:25:2)",
+        "...node internals, tsx..."
+      ]
+    },
+    {
+      "type": "aws:cdk:templateFile",
+      "data": "EshopAmplifyStack.template.json"
+    }
+  ],
+  "/EshopAmplifyStack/AmplifyRole": [
+    {
+      "type": "aws:cdk:analytics:construct",
+      "data": {
+        "assumedBy": {
+          "principalAccount": "*",
+          "assumeRoleAction": "*"
+        },
+        "managedPolicies": [
+          {
+            "managedPolicyArn": "*"
+          }
+        ]
+      }
+    }
+  ],
+  "/EshopAmplifyStack/EshopApp": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "EshopApp"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "new EshopAmplifyStack (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/lib/amplify-stack.ts:26:17)",
+        "<anonymous> (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/bin/infra.ts:19:1)",
+        "<anonymous> (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/bin/infra.ts:25:2)",
+        "...node internals, tsx..."
+      ]
+    }
+  ],
+  "/EshopAmplifyStack/AmplifyAppId": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "AmplifyAppId"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "new EshopAmplifyStack (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/lib/amplify-stack.ts:55:5)",
+        "<anonymous> (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/bin/infra.ts:19:1)",
+        "<anonymous> (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/bin/infra.ts:25:2)",
+        "...node internals, tsx..."
+      ]
+    }
+  ],
+  "/EshopAmplifyStack/AmplifyConsoleUrl": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "AmplifyConsoleUrl"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "new EshopAmplifyStack (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/lib/amplify-stack.ts:59:5)",
+        "<anonymous> (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/bin/infra.ts:19:1)",
+        "<anonymous> (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/bin/infra.ts:25:2)",
+        "...node internals, tsx..."
+      ]
+    }
+  ],
+  "/EshopAmplifyStack/BootstrapVersion": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "BootstrapVersion"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...aws-cdk-lib...",
+        "(no user code in 10 frames, use --stack-trace-limit to capture more)"
+      ]
+    }
+  ],
+  "/EshopAmplifyStack/CheckBootstrapVersion": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "CheckBootstrapVersion"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...aws-cdk-lib...",
+        "(no user code in 10 frames, use --stack-trace-limit to capture more)"
+      ]
+    }
+  ],
+  "/EshopAmplifyStack/AmplifyRole/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "AmplifyRole7A8FD9BC"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Role2 in aws-cdk-lib...",
+        "new EshopAmplifyStack (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/lib/amplify-stack.ts:17:25)",
+        "<anonymous> (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/bin/infra.ts:19:1)",
+        "<anonymous> (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/bin/infra.ts:25:2)",
+        "...node internals, tsx..."
+      ]
+    }
+  ],
+  "/EshopAmplifyStack/CDKMetadata/Default": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "CDKMetadata"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...aws-cdk-lib, node internals...",
+        "(no user code in 10 frames, use --stack-trace-limit to capture more)"
+      ]
+    }
+  ]
+}

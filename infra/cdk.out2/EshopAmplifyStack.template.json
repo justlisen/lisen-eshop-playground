@@ -1,0 +1,165 @@
+{
+ "Resources": {
+  "AmplifyRole7A8FD9BC": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "amplify.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/AdministratorAccess-Amplify"
+       ]
+      ]
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "EshopAmplifyStack/AmplifyRole/Resource"
+   }
+  },
+  "EshopApp": {
+   "Type": "AWS::Amplify::App",
+   "Properties": {
+    "BuildSpec": "version: 1\nfrontend:\n  phases:\n    preBuild:\n      commands:\n        - npm ci\n    build:\n      commands:\n        - npm run build\n  artifacts:\n    baseDirectory: .next\n    files:\n      - \"**/*\"\n  cache:\n    paths:\n      - node_modules/**/*",
+    "EnvironmentVariables": [
+     {
+      "Name": "NEXT_PUBLIC_USER_POOL_ID",
+      "Value": {
+       "Fn::GetStackOutput": {
+        "StackName": "EshopAuthStack",
+        "Region": "ap-southeast-1",
+        "OutputName": "PublishOutputRefUserPool6BA7E5F24B752AC8"
+       }
+      }
+     },
+     {
+      "Name": "NEXT_PUBLIC_USER_POOL_CLIENT_ID",
+      "Value": {
+       "Fn::GetStackOutput": {
+        "StackName": "EshopAuthStack",
+        "Region": "ap-southeast-1",
+        "OutputName": "PublishOutputRefUserPoolClient2F5918F7ACB5B0E0"
+       }
+      }
+     },
+     {
+      "Name": "NEXT_PUBLIC_IMAGES_CDN_URL",
+      "Value": {
+       "Fn::Join": [
+        "",
+        [
+         "https://",
+         {
+          "Fn::GetStackOutput": {
+           "StackName": "EshopStorageStack",
+           "Region": "ap-southeast-1",
+           "OutputName": "PublishOutputFnGetAttImagesDistribution2BC0FCCEDomainNameA2DA643B"
+          }
+         }
+        ]
+       ]
+      }
+     }
+    ],
+    "IAMServiceRole": {
+     "Fn::GetAtt": [
+      "AmplifyRole7A8FD9BC",
+      "Arn"
+     ]
+    },
+    "Name": "lisen-eshop-playground",
+    "Platform": "WEB_COMPUTE"
+   },
+   "Metadata": {
+    "aws:cdk:path": "EshopAmplifyStack/EshopApp"
+   }
+  },
+  "CDKMetadata": {
+   "Type": "AWS::CDK::Metadata",
+   "Properties": {
+    "Analytics": "v2:deflate64:H4sIAAAAAAAA/1WMywrCMBREv8UsJb1KRITuqh+g6FJErmkqt+ZFkygl5N+l6sbVwJkzI0Bs1rCc4StUsn1Umm6QTxHlg+MrXDOhgXx0Wp0zwxCSUe12ZHVmfiAryaNupHTJRlazOeM/Zxo0MpKzH1w4M2jxrtqD0yRJBVaf8x8bm+HnXsqF7zo7XRSOxmvqRth1tvG+TMU+RZ9i4da1CvqweAoBQsBq1geiakg2klFw/OYbA1ZuaN8AAAA="
+   },
+   "Metadata": {
+    "aws:cdk:path": "EshopAmplifyStack/CDKMetadata/Default"
+   }
+  }
+ },
+ "Outputs": {
+  "AmplifyAppId": {
+   "Description": "Use this App ID to connect GitHub in the Amplify console",
+   "Value": {
+    "Fn::GetAtt": [
+     "EshopApp",
+     "AppId"
+    ]
+   }
+  },
+  "AmplifyConsoleUrl": {
+   "Value": {
+    "Fn::Join": [
+     "",
+     [
+      "https://ap-southeast-1.console.aws.amazon.com/amplify/apps/",
+      {
+       "Fn::GetAtt": [
+        "EshopApp",
+        "AppId"
+       ]
+      }
+     ]
+    ]
+   }
+  }
+ },
+ "Parameters": {
+  "BootstrapVersion": {
+   "Type": "AWS::SSM::Parameter::Value<String>",
+   "Default": "/cdk-bootstrap/hnb659fds/version",
+   "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]"
+  }
+ },
+ "Rules": {
+  "CheckBootstrapVersion": {
+   "Assertions": [
+    {
+     "Assert": {
+      "Fn::Not": [
+       {
+        "Fn::Contains": [
+         [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+         ],
+         {
+          "Ref": "BootstrapVersion"
+         }
+        ]
+       }
+      ]
+     },
+     "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI."
+    }
+   ]
+  }
+ }
+}

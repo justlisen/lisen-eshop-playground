@@ -1,0 +1,36 @@
+{
+  "version": "55.0.0",
+  "files": {
+    "02b51ab524e7bcf8f477de3e71e5f9a72e448301b26ba62e9e75a14f9c55a093": {
+      "displayName": "EshopDatabaseStack/Custom::VpcRestrictDefaultSGCustomResourceProvider Code",
+      "source": {
+        "path": "asset.02b51ab524e7bcf8f477de3e71e5f9a72e448301b26ba62e9e75a14f9c55a093",
+        "packaging": "zip"
+      },
+      "destinations": {
+        "237725356452-ap-southeast-1-a060f543": {
+          "bucketName": "cdk-hnb659fds-assets-237725356452-ap-southeast-1",
+          "objectKey": "02b51ab524e7bcf8f477de3e71e5f9a72e448301b26ba62e9e75a14f9c55a093.zip",
+          "region": "ap-southeast-1",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::237725356452:role/cdk-hnb659fds-file-publishing-role-237725356452-ap-southeast-1"
+        }
+      }
+    },
+    "2e190a4b1bf98df5b0366d95874040956d6d667461860425e0922fa00a81aff4": {
+      "displayName": "EshopDatabaseStack Template",
+      "source": {
+        "path": "EshopDatabaseStack.template.json",
+        "packaging": "file"
+      },
+      "destinations": {
+        "237725356452-ap-southeast-1-9bc00612": {
+          "bucketName": "cdk-hnb659fds-assets-237725356452-ap-southeast-1",
+          "objectKey": "2e190a4b1bf98df5b0366d95874040956d6d667461860425e0922fa00a81aff4.json",
+          "region": "ap-southeast-1",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::237725356452:role/cdk-hnb659fds-file-publishing-role-237725356452-ap-southeast-1"
+        }
+      }
+    }
+  },
+  "dockerImages": {}
+}

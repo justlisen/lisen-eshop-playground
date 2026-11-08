@@ -1,0 +1,242 @@
+{
+ "Resources": {
+  "UserPool6BA7E5F2": {
+   "Type": "AWS::Cognito::UserPool",
+   "Properties": {
+    "AccountRecoverySetting": {
+     "RecoveryMechanisms": [
+      {
+       "Name": "verified_email",
+       "Priority": 1
+      }
+     ]
+    },
+    "AdminCreateUserConfig": {
+     "AllowAdminCreateUserOnly": false
+    },
+    "AutoVerifiedAttributes": [
+     "email"
+    ],
+    "EmailVerificationMessage": "The verification code to your new account is {####}",
+    "EmailVerificationSubject": "Verify your new account",
+    "Policies": {
+     "PasswordPolicy": {
+      "MinimumLength": 8,
+      "RequireLowercase": true,
+      "RequireNumbers": true,
+      "RequireSymbols": false,
+      "RequireUppercase": false
+     }
+    },
+    "Schema": [
+     {
+      "Mutable": true,
+      "Name": "email",
+      "Required": true
+     },
+     {
+      "Mutable": true,
+      "Name": "name",
+      "Required": false
+     }
+    ],
+    "SmsVerificationMessage": "The verification code to your new account is {####}",
+    "UserPoolName": "eshop-user-pool",
+    "UsernameAttributes": [
+     "email"
+    ],
+    "VerificationMessageTemplate": {
+     "DefaultEmailOption": "CONFIRM_WITH_CODE",
+     "EmailMessage": "The verification code to your new account is {####}",
+     "EmailSubject": "Verify your new account",
+     "SmsMessage": "The verification code to your new account is {####}"
+    }
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "EshopAuthStack/UserPool/Resource"
+   }
+  },
+  "UserPoolUserPoolDomain9F01E991": {
+   "Type": "AWS::Cognito::UserPoolDomain",
+   "Properties": {
+    "Domain": "eshop-237725356452",
+    "UserPoolId": {
+     "Ref": "UserPool6BA7E5F2"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "EshopAuthStack/UserPool/UserPoolDomain/Resource"
+   }
+  },
+  "GoogleProvider566D8493": {
+   "Type": "AWS::Cognito::UserPoolIdentityProvider",
+   "Properties": {
+    "AttributeMapping": {
+     "email": "email",
+     "name": "name",
+     "picture": "picture"
+    },
+    "ProviderDetails": {
+     "client_id": "REPLACE_WITH_GOOGLE_CLIENT_ID",
+     "client_secret": "REPLACE_WITH_GOOGLE_CLIENT_SECRET",
+     "authorize_scopes": "email profile openid"
+    },
+    "ProviderName": "Google",
+    "ProviderType": "Google",
+    "UserPoolId": {
+     "Ref": "UserPool6BA7E5F2"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "EshopAuthStack/GoogleProvider/Resource"
+   }
+  },
+  "SalesforceProvider0045A0F4": {
+   "Type": "AWS::Cognito::UserPoolIdentityProvider",
+   "Properties": {
+    "AttributeMapping": {
+     "email": "email",
+     "name": "name"
+    },
+    "ProviderDetails": {
+     "client_id": "REPLACE_WITH_SALESFORCE_CLIENT_ID",
+     "client_secret": "REPLACE_WITH_SALESFORCE_CLIENT_SECRET",
+     "authorize_scopes": "openid email profile",
+     "attributes_request_method": "GET",
+     "oidc_issuer": "https://login.salesforce.com"
+    },
+    "ProviderName": "Salesforce",
+    "ProviderType": "OIDC",
+    "UserPoolId": {
+     "Ref": "UserPool6BA7E5F2"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "EshopAuthStack/SalesforceProvider/Resource"
+   }
+  },
+  "UserPoolClient2F5918F7": {
+   "Type": "AWS::Cognito::UserPoolClient",
+   "Properties": {
+    "AllowedOAuthFlows": [
+     "code"
+    ],
+    "AllowedOAuthFlowsUserPoolClient": true,
+    "AllowedOAuthScopes": [
+     "email",
+     "openid",
+     "profile"
+    ],
+    "CallbackURLs": [
+     "http://localhost:3000/api/auth/callback/cognito"
+    ],
+    "ClientName": "eshop-web-client",
+    "ExplicitAuthFlows": [
+     "ALLOW_USER_PASSWORD_AUTH",
+     "ALLOW_USER_SRP_AUTH",
+     "ALLOW_REFRESH_TOKEN_AUTH"
+    ],
+    "GenerateSecret": false,
+    "LogoutURLs": [
+     "http://localhost:3000"
+    ],
+    "SupportedIdentityProviders": [
+     "COGNITO",
+     "Google",
+     "Salesforce"
+    ],
+    "UserPoolId": {
+     "Ref": "UserPool6BA7E5F2"
+    }
+   },
+   "DependsOn": [
+    "GoogleProvider566D8493",
+    "SalesforceProvider0045A0F4"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "EshopAuthStack/UserPoolClient/Resource"
+   }
+  },
+  "CDKMetadata": {
+   "Type": "AWS::CDK::Metadata",
+   "Properties": {
+    "Analytics": "v2:deflate64:H4sIAAAAAAAA/3VSXWvbQBD8LbnHIKtFpRT8Zpw2BEJjYtyXUMrpbqVsfLpV9/asqkb/vejLiR36dMvszDI7t1maffmcfrzSTVgYu184zNPjVrTZJ7oJvwyVHoXS4y4Ab4jc01HFqfyuK1BLda0SFcAVWyz9rv7qde7AqqVwhEQFLP2dXznUAYJaHhVUGt3Y7RKlo9APYCza970g2lvNdiXCmEcZ9F2iah1CQ2w35NAMugr9PfhSnic3DL8jMtxTA2x0gNnMhO/qesYL7cJr4wZLlHDB3rZVTi5M3N6zMRS9PIKhA3CrllnPreig3WxJWQjC1KruZ7Iu/JxdMhc3VGn0b6KcjE9pj+1+MztUG4YC/wyc7nziyDzNvbPgBaXdMB3QAt8SlQ6e1LU6U13S/qt/QGtG9cxYOwQv753Hs/6byyjBA2uBLRgGOSWuozx/c9QMNzGIp1+d0++xLdena6BV7P/3qIpZ1Y8gxr9akPyaLNyy9vJ6Pobq/mTGYLVzuTb7HbsZclRSlBPQK2JdEwvYyxgmxlmG46JdDz1EqaN0iScL6Uv4cMiyNMvST1cvAXHB0QtWkD6O7z8E6kYycAMAAA=="
+   },
+   "Metadata": {
+    "aws:cdk:path": "EshopAuthStack/CDKMetadata/Default"
+   }
+  }
+ },
+ "Outputs": {
+  "UserPoolId": {
+   "Value": {
+    "Ref": "UserPool6BA7E5F2"
+   }
+  },
+  "UserPoolClientId": {
+   "Value": {
+    "Ref": "UserPoolClient2F5918F7"
+   }
+  },
+  "CognitoDomain": {
+   "Value": {
+    "Fn::Join": [
+     "",
+     [
+      "https://",
+      {
+       "Ref": "UserPoolUserPoolDomain9F01E991"
+      },
+      ".auth.ap-southeast-1.amazoncognito.com"
+     ]
+    ]
+   }
+  },
+  "PublishOutputRefUserPool6BA7E5F24B752AC8": {
+   "Value": {
+    "Ref": "UserPool6BA7E5F2"
+   }
+  },
+  "PublishOutputRefUserPoolClient2F5918F7ACB5B0E0": {
+   "Value": {
+    "Ref": "UserPoolClient2F5918F7"
+   }
+  }
+ },
+ "Parameters": {
+  "BootstrapVersion": {
+   "Type": "AWS::SSM::Parameter::Value<String>",
+   "Default": "/cdk-bootstrap/hnb659fds/version",
+   "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]"
+  }
+ },
+ "Rules": {
+  "CheckBootstrapVersion": {
+   "Assertions": [
+    {
+     "Assert": {
+      "Fn::Not": [
+       {
+        "Fn::Contains": [
+         [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+         ],
+         {
+          "Ref": "BootstrapVersion"
+         }
+        ]
+       }
+      ]
+     },
+     "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI."
+    }
+   ]
+  }
+ }
+}

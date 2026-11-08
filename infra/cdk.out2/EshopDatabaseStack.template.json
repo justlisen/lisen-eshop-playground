@@ -1,0 +1,654 @@
+{
+ "Resources": {
+  "EshopVpcDFCA5BD5": {
+   "Type": "AWS::EC2::VPC",
+   "Properties": {
+    "CidrBlock": "10.0.0.0/16",
+    "EnableDnsHostnames": true,
+    "EnableDnsSupport": true,
+    "InstanceTenancy": "default",
+    "Tags": [
+     {
+      "Key": "Name",
+      "Value": "EshopDatabaseStack/EshopVpc"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "EshopDatabaseStack/EshopVpc/Resource"
+   }
+  },
+  "EshopVpcpublicSubnet1SubnetB9537C5C": {
+   "Type": "AWS::EC2::Subnet",
+   "Properties": {
+    "AvailabilityZone": "ap-southeast-1a",
+    "CidrBlock": "10.0.0.0/24",
+    "MapPublicIpOnLaunch": true,
+    "Tags": [
+     {
+      "Key": "aws-cdk:subnet-name",
+      "Value": "public"
+     },
+     {
+      "Key": "aws-cdk:subnet-type",
+      "Value": "Public"
+     },
+     {
+      "Key": "Name",
+      "Value": "EshopDatabaseStack/EshopVpc/publicSubnet1"
+     }
+    ],
+    "VpcId": {
+     "Ref": "EshopVpcDFCA5BD5"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "EshopDatabaseStack/EshopVpc/publicSubnet1/Subnet"
+   }
+  },
+  "EshopVpcpublicSubnet1RouteTable556DEDF3": {
+   "Type": "AWS::EC2::RouteTable",
+   "Properties": {
+    "Tags": [
+     {
+      "Key": "Name",
+      "Value": "EshopDatabaseStack/EshopVpc/publicSubnet1"
+     }
+    ],
+    "VpcId": {
+     "Ref": "EshopVpcDFCA5BD5"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "EshopDatabaseStack/EshopVpc/publicSubnet1/RouteTable"
+   }
+  },
+  "EshopVpcpublicSubnet1RouteTableAssociationDA286AA1": {
+   "Type": "AWS::EC2::SubnetRouteTableAssociation",
+   "Properties": {
+    "RouteTableId": {
+     "Ref": "EshopVpcpublicSubnet1RouteTable556DEDF3"
+    },
+    "SubnetId": {
+     "Ref": "EshopVpcpublicSubnet1SubnetB9537C5C"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "EshopDatabaseStack/EshopVpc/publicSubnet1/RouteTableAssociation"
+   }
+  },
+  "EshopVpcpublicSubnet1DefaultRoute9F93166F": {
+   "Type": "AWS::EC2::Route",
+   "Properties": {
+    "DestinationCidrBlock": "0.0.0.0/0",
+    "GatewayId": {
+     "Ref": "EshopVpcIGW4CD0A6D8"
+    },
+    "RouteTableId": {
+     "Ref": "EshopVpcpublicSubnet1RouteTable556DEDF3"
+    }
+   },
+   "DependsOn": [
+    "EshopVpcVPCGW870F5378"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "EshopDatabaseStack/EshopVpc/publicSubnet1/DefaultRoute"
+   }
+  },
+  "EshopVpcpublicSubnet2SubnetBBFC8AED": {
+   "Type": "AWS::EC2::Subnet",
+   "Properties": {
+    "AvailabilityZone": "ap-southeast-1b",
+    "CidrBlock": "10.0.1.0/24",
+    "MapPublicIpOnLaunch": true,
+    "Tags": [
+     {
+      "Key": "aws-cdk:subnet-name",
+      "Value": "public"
+     },
+     {
+      "Key": "aws-cdk:subnet-type",
+      "Value": "Public"
+     },
+     {
+      "Key": "Name",
+      "Value": "EshopDatabaseStack/EshopVpc/publicSubnet2"
+     }
+    ],
+    "VpcId": {
+     "Ref": "EshopVpcDFCA5BD5"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "EshopDatabaseStack/EshopVpc/publicSubnet2/Subnet"
+   }
+  },
+  "EshopVpcpublicSubnet2RouteTable4BBE3953": {
+   "Type": "AWS::EC2::RouteTable",
+   "Properties": {
+    "Tags": [
+     {
+      "Key": "Name",
+      "Value": "EshopDatabaseStack/EshopVpc/publicSubnet2"
+     }
+    ],
+    "VpcId": {
+     "Ref": "EshopVpcDFCA5BD5"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "EshopDatabaseStack/EshopVpc/publicSubnet2/RouteTable"
+   }
+  },
+  "EshopVpcpublicSubnet2RouteTableAssociationD2497619": {
+   "Type": "AWS::EC2::SubnetRouteTableAssociation",
+   "Properties": {
+    "RouteTableId": {
+     "Ref": "EshopVpcpublicSubnet2RouteTable4BBE3953"
+    },
+    "SubnetId": {
+     "Ref": "EshopVpcpublicSubnet2SubnetBBFC8AED"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "EshopDatabaseStack/EshopVpc/publicSubnet2/RouteTableAssociation"
+   }
+  },
+  "EshopVpcpublicSubnet2DefaultRoute2C47428A": {
+   "Type": "AWS::EC2::Route",
+   "Properties": {
+    "DestinationCidrBlock": "0.0.0.0/0",
+    "GatewayId": {
+     "Ref": "EshopVpcIGW4CD0A6D8"
+    },
+    "RouteTableId": {
+     "Ref": "EshopVpcpublicSubnet2RouteTable4BBE3953"
+    }
+   },
+   "DependsOn": [
+    "EshopVpcVPCGW870F5378"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "EshopDatabaseStack/EshopVpc/publicSubnet2/DefaultRoute"
+   }
+  },
+  "EshopVpcisolatedSubnet1Subnet851CD172": {
+   "Type": "AWS::EC2::Subnet",
+   "Properties": {
+    "AvailabilityZone": "ap-southeast-1a",
+    "CidrBlock": "10.0.2.0/24",
+    "MapPublicIpOnLaunch": false,
+    "Tags": [
+     {
+      "Key": "aws-cdk:subnet-name",
+      "Value": "isolated"
+     },
+     {
+      "Key": "aws-cdk:subnet-type",
+      "Value": "Isolated"
+     },
+     {
+      "Key": "Name",
+      "Value": "EshopDatabaseStack/EshopVpc/isolatedSubnet1"
+     }
+    ],
+    "VpcId": {
+     "Ref": "EshopVpcDFCA5BD5"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "EshopDatabaseStack/EshopVpc/isolatedSubnet1/Subnet"
+   }
+  },
+  "EshopVpcisolatedSubnet1RouteTableEEF3CA43": {
+   "Type": "AWS::EC2::RouteTable",
+   "Properties": {
+    "Tags": [
+     {
+      "Key": "Name",
+      "Value": "EshopDatabaseStack/EshopVpc/isolatedSubnet1"
+     }
+    ],
+    "VpcId": {
+     "Ref": "EshopVpcDFCA5BD5"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "EshopDatabaseStack/EshopVpc/isolatedSubnet1/RouteTable"
+   }
+  },
+  "EshopVpcisolatedSubnet1RouteTableAssociation06D76580": {
+   "Type": "AWS::EC2::SubnetRouteTableAssociation",
+   "Properties": {
+    "RouteTableId": {
+     "Ref": "EshopVpcisolatedSubnet1RouteTableEEF3CA43"
+    },
+    "SubnetId": {
+     "Ref": "EshopVpcisolatedSubnet1Subnet851CD172"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "EshopDatabaseStack/EshopVpc/isolatedSubnet1/RouteTableAssociation"
+   }
+  },
+  "EshopVpcisolatedSubnet2Subnet8F710A31": {
+   "Type": "AWS::EC2::Subnet",
+   "Properties": {
+    "AvailabilityZone": "ap-southeast-1b",
+    "CidrBlock": "10.0.3.0/24",
+    "MapPublicIpOnLaunch": false,
+    "Tags": [
+     {
+      "Key": "aws-cdk:subnet-name",
+      "Value": "isolated"
+     },
+     {
+      "Key": "aws-cdk:subnet-type",
+      "Value": "Isolated"
+     },
+     {
+      "Key": "Name",
+      "Value": "EshopDatabaseStack/EshopVpc/isolatedSubnet2"
+     }
+    ],
+    "VpcId": {
+     "Ref": "EshopVpcDFCA5BD5"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "EshopDatabaseStack/EshopVpc/isolatedSubnet2/Subnet"
+   }
+  },
+  "EshopVpcisolatedSubnet2RouteTable7DE45E22": {
+   "Type": "AWS::EC2::RouteTable",
+   "Properties": {
+    "Tags": [
+     {
+      "Key": "Name",
+      "Value": "EshopDatabaseStack/EshopVpc/isolatedSubnet2"
+     }
+    ],
+    "VpcId": {
+     "Ref": "EshopVpcDFCA5BD5"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "EshopDatabaseStack/EshopVpc/isolatedSubnet2/RouteTable"
+   }
+  },
+  "EshopVpcisolatedSubnet2RouteTableAssociation7A14555A": {
+   "Type": "AWS::EC2::SubnetRouteTableAssociation",
+   "Properties": {
+    "RouteTableId": {
+     "Ref": "EshopVpcisolatedSubnet2RouteTable7DE45E22"
+    },
+    "SubnetId": {
+     "Ref": "EshopVpcisolatedSubnet2Subnet8F710A31"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "EshopDatabaseStack/EshopVpc/isolatedSubnet2/RouteTableAssociation"
+   }
+  },
+  "EshopVpcIGW4CD0A6D8": {
+   "Type": "AWS::EC2::InternetGateway",
+   "Properties": {
+    "Tags": [
+     {
+      "Key": "Name",
+      "Value": "EshopDatabaseStack/EshopVpc"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "EshopDatabaseStack/EshopVpc/IGW"
+   }
+  },
+  "EshopVpcVPCGW870F5378": {
+   "Type": "AWS::EC2::VPCGatewayAttachment",
+   "Properties": {
+    "InternetGatewayId": {
+     "Ref": "EshopVpcIGW4CD0A6D8"
+    },
+    "VpcId": {
+     "Ref": "EshopVpcDFCA5BD5"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "EshopDatabaseStack/EshopVpc/VPCGW"
+   }
+  },
+  "EshopVpcRestrictDefaultSecurityGroupCustomResource38377F20": {
+   "Type": "Custom::VpcRestrictDefaultSG",
+   "Properties": {
+    "ServiceToken": {
+     "Fn::GetAtt": [
+      "CustomVpcRestrictDefaultSGCustomResourceProviderHandlerDC833E5E",
+      "Arn"
+     ]
+    },
+    "DefaultSecurityGroupId": {
+     "Fn::GetAtt": [
+      "EshopVpcDFCA5BD5",
+      "DefaultSecurityGroup"
+     ]
+    },
+    "Account": "237725356452"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "EshopDatabaseStack/EshopVpc/RestrictDefaultSecurityGroupCustomResource/Default"
+   }
+  },
+  "CustomVpcRestrictDefaultSGCustomResourceProviderRole26592FE0": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Version": "2012-10-17",
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "lambda.amazonaws.com"
+       }
+      }
+     ]
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Sub": "arn:${AWS::Partition}:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+     }
+    ],
+    "Policies": [
+     {
+      "PolicyName": "Inline",
+      "PolicyDocument": {
+       "Version": "2012-10-17",
+       "Statement": [
+        {
+         "Effect": "Allow",
+         "Action": [
+          "ec2:AuthorizeSecurityGroupIngress",
+          "ec2:AuthorizeSecurityGroupEgress",
+          "ec2:RevokeSecurityGroupIngress",
+          "ec2:RevokeSecurityGroupEgress"
+         ],
+         "Resource": [
+          {
+           "Fn::Join": [
+            "",
+            [
+             "arn:aws:ec2:ap-southeast-1:237725356452:security-group/",
+             {
+              "Fn::GetAtt": [
+               "EshopVpcDFCA5BD5",
+               "DefaultSecurityGroup"
+              ]
+             }
+            ]
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "EshopDatabaseStack/Custom::VpcRestrictDefaultSGCustomResourceProvider/Role"
+   }
+  },
+  "CustomVpcRestrictDefaultSGCustomResourceProviderHandlerDC833E5E": {
+   "Type": "AWS::Lambda::Function",
+   "Properties": {
+    "Code": {
+     "S3Bucket": "cdk-hnb659fds-assets-237725356452-ap-southeast-1",
+     "S3Key": "02b51ab524e7bcf8f477de3e71e5f9a72e448301b26ba62e9e75a14f9c55a093.zip"
+    },
+    "Timeout": 900,
+    "MemorySize": 128,
+    "Handler": "__entrypoint__.handler",
+    "Role": {
+     "Fn::GetAtt": [
+      "CustomVpcRestrictDefaultSGCustomResourceProviderRole26592FE0",
+      "Arn"
+     ]
+    },
+    "Runtime": "nodejs24.x",
+    "Description": "Lambda function for removing all inbound/outbound rules from the VPC default security group"
+   },
+   "DependsOn": [
+    "CustomVpcRestrictDefaultSGCustomResourceProviderRole26592FE0"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "EshopDatabaseStack/Custom::VpcRestrictDefaultSGCustomResourceProvider/Handler",
+    "aws:asset:path": "asset.02b51ab524e7bcf8f477de3e71e5f9a72e448301b26ba62e9e75a14f9c55a093",
+    "aws:asset:property": "Code"
+   }
+  },
+  "DbSecurityGroupE9D701AD": {
+   "Type": "AWS::EC2::SecurityGroup",
+   "Properties": {
+    "GroupDescription": "Aurora Serverless security group",
+    "SecurityGroupEgress": [
+     {
+      "CidrIp": "0.0.0.0/0",
+      "Description": "Allow all outbound traffic by default",
+      "IpProtocol": "-1"
+     }
+    ],
+    "SecurityGroupIngress": [
+     {
+      "CidrIp": {
+       "Fn::GetAtt": [
+        "EshopVpcDFCA5BD5",
+        "CidrBlock"
+       ]
+      },
+      "Description": "Allow PostgreSQL from VPC",
+      "FromPort": 5432,
+      "IpProtocol": "tcp",
+      "ToPort": 5432
+     }
+    ],
+    "VpcId": {
+     "Ref": "EshopVpcDFCA5BD5"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "EshopDatabaseStack/DbSecurityGroup/Resource"
+   }
+  },
+  "AuroraClusterSubnetsF3E9E6AD": {
+   "Type": "AWS::RDS::DBSubnetGroup",
+   "Properties": {
+    "DBSubnetGroupDescription": "Subnets for AuroraCluster database",
+    "SubnetIds": [
+     {
+      "Ref": "EshopVpcisolatedSubnet1Subnet851CD172"
+     },
+     {
+      "Ref": "EshopVpcisolatedSubnet2Subnet8F710A31"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "EshopDatabaseStack/AuroraCluster/Subnets/Default"
+   }
+  },
+  "EshopDatabaseStackAuroraClusterSecretA5376CD73fdaad7efa858a3daf9490cf0a702aeb": {
+   "Type": "AWS::SecretsManager::Secret",
+   "Properties": {
+    "Description": {
+     "Fn::Join": [
+      "",
+      [
+       "Generated by the CDK for stack: ",
+       {
+        "Ref": "AWS::StackName"
+       }
+      ]
+     ]
+    },
+    "GenerateSecretString": {
+     "ExcludeCharacters": " %+~`#$&*()|[]{}:;<>?!'/@\"\\",
+     "GenerateStringKey": "password",
+     "PasswordLength": 30,
+     "SecretStringTemplate": "{\"username\":\"eshop_admin\"}"
+    }
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "EshopDatabaseStack/AuroraCluster/Secret/Resource"
+   }
+  },
+  "AuroraClusterSecretAttachmentDB8032DA": {
+   "Type": "AWS::SecretsManager::SecretTargetAttachment",
+   "Properties": {
+    "SecretId": {
+     "Ref": "EshopDatabaseStackAuroraClusterSecretA5376CD73fdaad7efa858a3daf9490cf0a702aeb"
+    },
+    "TargetId": {
+     "Ref": "AuroraCluster23D869C0"
+    },
+    "TargetType": "AWS::RDS::DBCluster"
+   },
+   "Metadata": {
+    "aws:cdk:path": "EshopDatabaseStack/AuroraCluster/Secret/Attachment/Resource"
+   }
+  },
+  "AuroraCluster23D869C0": {
+   "Type": "AWS::RDS::DBCluster",
+   "Properties": {
+    "CopyTagsToSnapshot": true,
+    "DBClusterParameterGroupName": "default.aurora-postgresql17",
+    "DBSubnetGroupName": {
+     "Ref": "AuroraClusterSubnetsF3E9E6AD"
+    },
+    "DatabaseName": "eshop",
+    "Engine": "aurora-postgresql",
+    "EngineVersion": "17.4",
+    "MasterUserPassword": {
+     "Fn::Join": [
+      "",
+      [
+       "{{resolve:secretsmanager:",
+       {
+        "Ref": "EshopDatabaseStackAuroraClusterSecretA5376CD73fdaad7efa858a3daf9490cf0a702aeb"
+       },
+       ":SecretString:password::}}"
+      ]
+     ]
+    },
+    "MasterUsername": "eshop_admin",
+    "Port": 5432,
+    "ServerlessV2ScalingConfiguration": {
+     "MaxCapacity": 4,
+     "MinCapacity": 0.5
+    },
+    "StorageEncrypted": true,
+    "VpcSecurityGroupIds": [
+     {
+      "Fn::GetAtt": [
+       "DbSecurityGroupE9D701AD",
+       "GroupId"
+      ]
+     }
+    ]
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "EshopDatabaseStack/AuroraCluster/Resource"
+   }
+  },
+  "AuroraClusterwriter499C523E": {
+   "Type": "AWS::RDS::DBInstance",
+   "Properties": {
+    "DBClusterIdentifier": {
+     "Ref": "AuroraCluster23D869C0"
+    },
+    "DBInstanceClass": "db.serverless",
+    "Engine": "aurora-postgresql",
+    "PromotionTier": 0,
+    "PubliclyAccessible": false
+   },
+   "DependsOn": [
+    "EshopVpcisolatedSubnet1RouteTableAssociation06D76580",
+    "EshopVpcisolatedSubnet2RouteTableAssociation7A14555A"
+   ],
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "EshopDatabaseStack/AuroraCluster/writer/Resource"
+   }
+  },
+  "CDKMetadata": {
+   "Type": "AWS::CDK::Metadata",
+   "Properties": {
+    "Analytics": "v2:deflate64:H4sIAAAAAAAA/+1VTW/jNhD9LcvjglELL3YL5OZo24WxHzbsNIcaQTEmxwoTilRnSDuu4P9eUJRsx+seCuwhh55EDjUzb4ZvHkfF6Jf3xc9vYMtXSj9dWbMq2kUA9SRhy3+2qEZFe9eoZStqeB7/zeJavBVSOAifIOAWdoOF48phKL1bmyoSBOOduF62wkGNL3653TXJMIsra5SQQhlNX4Gfup/28t89JuwtBNTf+dzv72W5dnezUuaoi85t2QrYgLGwMtaE3R/eDWE3jZrofp1C3Vivnvp9DU0OMmmm7gtEpx7EdaCIUphm86E8+x2YTeUmzebDWGtC5qkrCfvy+4JeBYpXA+R1oMiUyURJq7mPAW9hZfFoP9rGzF6ZLsDhZzkjs4GAP5xsa7D8Ctr7P4wfBaOj2sQFJIeDbPaC1e/GIYB6qNEFuUAVyYTdJ/KxWbYJaZ9HIysyzSGuFGCt346tncaw8tHpPBNd2VpPXJXAzKPFTogVuImzxmG25OlR3jlUKeSg49GZvyL2zel0Q7wVvcK+wLaXpLloP0KAFTCWNnJAWrYCXWVSo4dVL98peDbcIXFXRCvW0drDtu/+o6dT016KBghqDEhd4t+gNnY3vBDGVRZ/Z6S5D13Px01jjYKTNuWsL9w0riHakPxePDdN4ymg/uKrhJoHAIy0QbLIfDf6alwJDSgTDhhOT+H57HRLJiAdeXdcZeXg1IfLD12X+aTlLK6X6TYO+IfmfzvWoAg1umDADjdKWPsN2Jm3RiVQGjmQ3yXgwRNU+KtTtGtSwsyfe5mRDRT8nnj/uYxzDMNUfLw5SSWHchaoqJNUzMiMd5/x2O10eFIxYXfhc6wONE4jEM/u9tztUmx8VjZqLB+AQAUkPkkBCqduBsxbT7rsLtVA+QCuSjzJ43QJSl9nPx95M3EcwCncywyLa3BQIRVtnjLCTggIwy1QheGoD8u2r6RHFrrzk0yX3fZ7OUf2kRTKMnLw9bDNhEqP2uXzGfmN0Ug3wCjHzBgWASrjquQzjaGJYS+d11g88k+b0agYjYp3bx7ZmCuKLpgai3n+/gO8B5BJbAoAAA=="
+   },
+   "Metadata": {
+    "aws:cdk:path": "EshopDatabaseStack/CDKMetadata/Default"
+   }
+  }
+ },
+ "Outputs": {
+  "DbClusterEndpoint": {
+   "Value": {
+    "Fn::GetAtt": [
+     "AuroraCluster23D869C0",
+     "Endpoint.Address"
+    ]
+   }
+  },
+  "DbSecretArn": {
+   "Value": {
+    "Ref": "AuroraClusterSecretAttachmentDB8032DA"
+   }
+  },
+  "VpcId": {
+   "Value": {
+    "Ref": "EshopVpcDFCA5BD5"
+   }
+  }
+ },
+ "Parameters": {
+  "BootstrapVersion": {
+   "Type": "AWS::SSM::Parameter::Value<String>",
+   "Default": "/cdk-bootstrap/hnb659fds/version",
+   "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]"
+  }
+ },
+ "Rules": {
+  "CheckBootstrapVersion": {
+   "Assertions": [
+    {
+     "Assert": {
+      "Fn::Not": [
+       {
+        "Fn::Contains": [
+         [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+         ],
+         {
+          "Ref": "BootstrapVersion"
+         }
+        ]
+       }
+      ]
+     },
+     "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI."
+    }
+   ]
+  }
+ }
+}

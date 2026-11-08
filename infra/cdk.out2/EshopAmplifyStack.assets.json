@@ -1,0 +1,21 @@
+{
+  "version": "55.0.0",
+  "files": {
+    "cb3e0f923d0dcbe1ee01b714b4f07a98d804da82763486fb0e49528b67909e7d": {
+      "displayName": "EshopAmplifyStack Template",
+      "source": {
+        "path": "EshopAmplifyStack.template.json",
+        "packaging": "file"
+      },
+      "destinations": {
+        "237725356452-ap-southeast-1-089bb75f": {
+          "bucketName": "cdk-hnb659fds-assets-237725356452-ap-southeast-1",
+          "objectKey": "cb3e0f923d0dcbe1ee01b714b4f07a98d804da82763486fb0e49528b67909e7d.json",
+          "region": "ap-southeast-1",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::237725356452:role/cdk-hnb659fds-file-publishing-role-237725356452-ap-southeast-1"
+        }
+      }
+    }
+  },
+  "dockerImages": {}
+}

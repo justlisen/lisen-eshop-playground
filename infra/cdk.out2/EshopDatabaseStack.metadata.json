@@ -1,0 +1,750 @@
+{
+  "/EshopDatabaseStack": [
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "<anonymous> (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/bin/infra.ts:17:23)",
+        "<anonymous> (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/bin/infra.ts:25:2)",
+        "...node internals, tsx..."
+      ]
+    },
+    {
+      "type": "aws:cdk:acknowledged-rules",
+      "data": {
+        "CloudFormation-Validate::W3010": "Literal AZs in template are the result of accessing stack.availabilityZones, this is expected and safe"
+      },
+      "trace": [
+        "    ...new Vpc2 in aws-cdk-lib...",
+        "    at new EshopDatabaseStack (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/lib/database-stack.ts:13:17)",
+        "    at <anonymous> (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/bin/infra.ts:17:23)",
+        "    at <anonymous> (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/bin/infra.ts:25:2)",
+        "    ...node internals, tsx..."
+      ]
+    },
+    {
+      "type": "aws:cdk:templateFile",
+      "data": "EshopDatabaseStack.template.json"
+    }
+  ],
+  "/EshopDatabaseStack/EshopVpc": [
+    {
+      "type": "aws:cdk:analytics:construct",
+      "data": {
+        "maxAzs": "*",
+        "natGateways": "*",
+        "subnetConfiguration": [
+          {
+            "name": "*",
+            "subnetType": "Public",
+            "cidrMask": "*"
+          },
+          {
+            "name": "*",
+            "subnetType": "Isolated",
+            "cidrMask": "*"
+          }
+        ]
+      }
+    }
+  ],
+  "/EshopDatabaseStack/Custom::VpcRestrictDefaultSGCustomResourceProvider": [
+    {
+      "type": "aws:cdk:is-custom-resource-handler-customResourceProvider",
+      "data": true
+    }
+  ],
+  "/EshopDatabaseStack/DbSecurityGroup": [
+    {
+      "type": "aws:cdk:analytics:construct",
+      "data": {
+        "vpc": "*",
+        "description": "*",
+        "allowAllOutbound": true
+      }
+    },
+    {
+      "type": "aws:cdk:analytics:method",
+      "data": {
+        "addIngressRule": [
+          {
+            "canInlineRule": true,
+            "connections": "*",
+            "uniqueId": "*"
+          },
+          {},
+          "*"
+        ]
+      }
+    }
+  ],
+  "/EshopDatabaseStack/AuroraCluster": [
+    {
+      "type": "aws:cdk:analytics:construct",
+      "data": {
+        "engine": {
+          "engineType": "*",
+          "engineVersion": {
+            "fullVersion": "*",
+            "majorVersion": "*"
+          },
+          "parameterGroupFamily": "*",
+          "singleUserRotationApplication": "*",
+          "engineFamily": "*",
+          "defaultUsername": "*",
+          "supportedLogTypes": "*"
+        },
+        "serverlessV2MinCapacity": "*",
+        "serverlessV2MaxCapacity": "*",
+        "writer": "*",
+        "vpc": "*",
+        "vpcSubnets": {
+          "subnetType": "Isolated"
+        },
+        "securityGroups": [
+          "*"
+        ],
+        "defaultDatabaseName": "*",
+        "credentials": "*",
+        "removalPolicy": "destroy",
+        "storageEncrypted": true
+      }
+    }
+  ],
+  "/EshopDatabaseStack/DbClusterEndpoint": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "DbClusterEndpoint"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "new EshopDatabaseStack (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/lib/database-stack.ts:61:5)",
+        "<anonymous> (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/bin/infra.ts:17:23)",
+        "<anonymous> (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/bin/infra.ts:25:2)",
+        "...node internals, tsx..."
+      ]
+    }
+  ],
+  "/EshopDatabaseStack/DbSecretArn": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "DbSecretArn"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "new EshopDatabaseStack (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/lib/database-stack.ts:62:5)",
+        "<anonymous> (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/bin/infra.ts:17:23)",
+        "<anonymous> (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/bin/infra.ts:25:2)",
+        "...node internals, tsx..."
+      ]
+    }
+  ],
+  "/EshopDatabaseStack/VpcId": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "VpcId"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "new EshopDatabaseStack (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/lib/database-stack.ts:63:5)",
+        "<anonymous> (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/bin/infra.ts:17:23)",
+        "<anonymous> (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/bin/infra.ts:25:2)",
+        "...node internals, tsx..."
+      ]
+    }
+  ],
+  "/EshopDatabaseStack/BootstrapVersion": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "BootstrapVersion"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...aws-cdk-lib...",
+        "(no user code in 10 frames, use --stack-trace-limit to capture more)"
+      ]
+    }
+  ],
+  "/EshopDatabaseStack/CheckBootstrapVersion": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "CheckBootstrapVersion"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...aws-cdk-lib...",
+        "(no user code in 10 frames, use --stack-trace-limit to capture more)"
+      ]
+    }
+  ],
+  "/EshopDatabaseStack/EshopVpc/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "EshopVpcDFCA5BD5"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Vpc2 in aws-cdk-lib...",
+        "new EshopDatabaseStack (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/lib/database-stack.ts:13:17)",
+        "<anonymous> (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/bin/infra.ts:17:23)",
+        "<anonymous> (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/bin/infra.ts:25:2)",
+        "...node internals, tsx..."
+      ]
+    }
+  ],
+  "/EshopDatabaseStack/EshopVpc/publicSubnet1": [
+    {
+      "type": "aws:cdk:analytics:construct",
+      "data": {
+        "availabilityZone": "*",
+        "vpcId": "*",
+        "cidrBlock": "*",
+        "mapPublicIpOnLaunch": true,
+        "ipv6CidrBlock": "*",
+        "assignIpv6AddressOnCreation": "*"
+      }
+    },
+    {
+      "type": "aws:cdk:analytics:construct",
+      "data": {
+        "availabilityZone": "*",
+        "vpcId": "*",
+        "cidrBlock": "*",
+        "mapPublicIpOnLaunch": true,
+        "ipv6CidrBlock": "*",
+        "assignIpv6AddressOnCreation": "*"
+      }
+    },
+    {
+      "type": "aws:cdk:analytics:method",
+      "data": {}
+    }
+  ],
+  "/EshopDatabaseStack/EshopVpc/publicSubnet2": [
+    {
+      "type": "aws:cdk:analytics:construct",
+      "data": {
+        "availabilityZone": "*",
+        "vpcId": "*",
+        "cidrBlock": "*",
+        "mapPublicIpOnLaunch": true,
+        "ipv6CidrBlock": "*",
+        "assignIpv6AddressOnCreation": "*"
+      }
+    },
+    {
+      "type": "aws:cdk:analytics:construct",
+      "data": {
+        "availabilityZone": "*",
+        "vpcId": "*",
+        "cidrBlock": "*",
+        "mapPublicIpOnLaunch": true,
+        "ipv6CidrBlock": "*",
+        "assignIpv6AddressOnCreation": "*"
+      }
+    },
+    {
+      "type": "aws:cdk:analytics:method",
+      "data": {}
+    }
+  ],
+  "/EshopDatabaseStack/EshopVpc/isolatedSubnet1": [
+    {
+      "type": "aws:cdk:analytics:construct",
+      "data": {
+        "availabilityZone": "*",
+        "vpcId": "*",
+        "cidrBlock": "*",
+        "mapPublicIpOnLaunch": false,
+        "ipv6CidrBlock": "*",
+        "assignIpv6AddressOnCreation": "*"
+      }
+    },
+    {
+      "type": "aws:cdk:analytics:construct",
+      "data": {
+        "availabilityZone": "*",
+        "vpcId": "*",
+        "cidrBlock": "*",
+        "mapPublicIpOnLaunch": false,
+        "ipv6CidrBlock": "*",
+        "assignIpv6AddressOnCreation": "*"
+      }
+    }
+  ],
+  "/EshopDatabaseStack/EshopVpc/isolatedSubnet2": [
+    {
+      "type": "aws:cdk:analytics:construct",
+      "data": {
+        "availabilityZone": "*",
+        "vpcId": "*",
+        "cidrBlock": "*",
+        "mapPublicIpOnLaunch": false,
+        "ipv6CidrBlock": "*",
+        "assignIpv6AddressOnCreation": "*"
+      }
+    },
+    {
+      "type": "aws:cdk:analytics:construct",
+      "data": {
+        "availabilityZone": "*",
+        "vpcId": "*",
+        "cidrBlock": "*",
+        "mapPublicIpOnLaunch": false,
+        "ipv6CidrBlock": "*",
+        "assignIpv6AddressOnCreation": "*"
+      }
+    }
+  ],
+  "/EshopDatabaseStack/EshopVpc/IGW": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "EshopVpcIGW4CD0A6D8"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Vpc2 in aws-cdk-lib...",
+        "new EshopDatabaseStack (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/lib/database-stack.ts:13:17)",
+        "<anonymous> (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/bin/infra.ts:17:23)",
+        "<anonymous> (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/bin/infra.ts:25:2)",
+        "...node internals, tsx..."
+      ]
+    }
+  ],
+  "/EshopDatabaseStack/EshopVpc/VPCGW": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "EshopVpcVPCGW870F5378"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Vpc2 in aws-cdk-lib...",
+        "new EshopDatabaseStack (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/lib/database-stack.ts:13:17)",
+        "<anonymous> (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/bin/infra.ts:17:23)",
+        "<anonymous> (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/bin/infra.ts:25:2)",
+        "...node internals, tsx..."
+      ]
+    }
+  ],
+  "/EshopDatabaseStack/EshopVpc/RestrictDefaultSecurityGroupCustomResource": [
+    {
+      "type": "aws:cdk:analytics:construct",
+      "data": "*"
+    }
+  ],
+  "/EshopDatabaseStack/Custom::VpcRestrictDefaultSGCustomResourceProvider/Role": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "CustomVpcRestrictDefaultSGCustomResourceProviderRole26592FE0"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Vpc2 in aws-cdk-lib...",
+        "new EshopDatabaseStack (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/lib/database-stack.ts:13:17)",
+        "<anonymous> (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/bin/infra.ts:17:23)",
+        "<anonymous> (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/bin/infra.ts:25:2)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/EshopDatabaseStack/Custom::VpcRestrictDefaultSGCustomResourceProvider/Handler": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "CustomVpcRestrictDefaultSGCustomResourceProviderHandlerDC833E5E"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Vpc2 in aws-cdk-lib...",
+        "new EshopDatabaseStack (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/lib/database-stack.ts:13:17)",
+        "<anonymous> (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/bin/infra.ts:17:23)",
+        "<anonymous> (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/bin/infra.ts:25:2)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/EshopDatabaseStack/DbSecurityGroup/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "DbSecurityGroupE9D701AD"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new SecurityGroup2 in aws-cdk-lib...",
+        "new EshopDatabaseStack (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/lib/database-stack.ts:30:29)",
+        "<anonymous> (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/bin/infra.ts:17:23)",
+        "<anonymous> (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/bin/infra.ts:25:2)",
+        "...node internals, tsx..."
+      ]
+    }
+  ],
+  "/EshopDatabaseStack/AuroraCluster/Subnets": [
+    {
+      "type": "aws:cdk:analytics:construct",
+      "data": {
+        "description": "*",
+        "vpc": "*",
+        "vpcSubnets": {
+          "subnetType": "Isolated"
+        },
+        "removalPolicy": "*"
+      }
+    }
+  ],
+  "/EshopDatabaseStack/AuroraCluster/Secret": [
+    {
+      "type": "aws:cdk:analytics:construct",
+      "data": {
+        "encryptionKey": "*",
+        "secretName": "*",
+        "replicaRegions": "*"
+      }
+    },
+    {
+      "type": "aws:cdk:analytics:construct",
+      "data": {
+        "username": "*",
+        "secretName": "*",
+        "encryptionKey": "*",
+        "excludeCharacters": "*",
+        "replaceOnPasswordCriteriaChanges": true,
+        "replicaRegions": "*"
+      }
+    }
+  ],
+  "/EshopDatabaseStack/AuroraCluster/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "AuroraCluster23D869C0"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new DatabaseCluster2 in aws-cdk-lib...",
+        "new EshopDatabaseStack (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/lib/database-stack.ts:43:21)",
+        "<anonymous> (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/bin/infra.ts:17:23)",
+        "<anonymous> (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/bin/infra.ts:25:2)",
+        "...node internals, tsx..."
+      ]
+    }
+  ],
+  "/EshopDatabaseStack/AuroraCluster/writer": [
+    {
+      "type": "aws:cdk:analytics:construct",
+      "data": "*"
+    }
+  ],
+  "/EshopDatabaseStack/CDKMetadata/Default": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "CDKMetadata"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...aws-cdk-lib, node internals...",
+        "(no user code in 10 frames, use --stack-trace-limit to capture more)"
+      ]
+    }
+  ],
+  "/EshopDatabaseStack/EshopVpc/publicSubnet1/Subnet": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "EshopVpcpublicSubnet1SubnetB9537C5C"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        ".../Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:287 in aws-cdk-lib...",
+        "Array.forEach (:)",
+        "...aws-cdk-lib..."
+      ]
+    }
+  ],
+  "/EshopDatabaseStack/EshopVpc/publicSubnet1/RouteTable": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "EshopVpcpublicSubnet1RouteTable556DEDF3"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        ".../Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:287 in aws-cdk-lib...",
+        "Array.forEach (:)",
+        "...aws-cdk-lib..."
+      ]
+    }
+  ],
+  "/EshopDatabaseStack/EshopVpc/publicSubnet1/RouteTableAssociation": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "EshopVpcpublicSubnet1RouteTableAssociationDA286AA1"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        ".../Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:287 in aws-cdk-lib...",
+        "Array.forEach (:)",
+        "...aws-cdk-lib..."
+      ]
+    }
+  ],
+  "/EshopDatabaseStack/EshopVpc/publicSubnet1/DefaultRoute": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "EshopVpcpublicSubnet1DefaultRoute9F93166F"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        ".../Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:225 in aws-cdk-lib...",
+        "Array.forEach (:)",
+        "...new Vpc2 in aws-cdk-lib...",
+        "new EshopDatabaseStack (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/lib/database-stack.ts:13:17)",
+        "<anonymous> (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/bin/infra.ts:17:23)",
+        "<anonymous> (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/bin/infra.ts:25:2)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/EshopDatabaseStack/EshopVpc/publicSubnet2/Subnet": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "EshopVpcpublicSubnet2SubnetBBFC8AED"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        ".../Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:287 in aws-cdk-lib...",
+        "Array.forEach (:)",
+        "...aws-cdk-lib..."
+      ]
+    }
+  ],
+  "/EshopDatabaseStack/EshopVpc/publicSubnet2/RouteTable": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "EshopVpcpublicSubnet2RouteTable4BBE3953"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        ".../Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:287 in aws-cdk-lib...",
+        "Array.forEach (:)",
+        "...aws-cdk-lib..."
+      ]
+    }
+  ],
+  "/EshopDatabaseStack/EshopVpc/publicSubnet2/RouteTableAssociation": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "EshopVpcpublicSubnet2RouteTableAssociationD2497619"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        ".../Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:287 in aws-cdk-lib...",
+        "Array.forEach (:)",
+        "...aws-cdk-lib..."
+      ]
+    }
+  ],
+  "/EshopDatabaseStack/EshopVpc/publicSubnet2/DefaultRoute": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "EshopVpcpublicSubnet2DefaultRoute2C47428A"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        ".../Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:225 in aws-cdk-lib...",
+        "Array.forEach (:)",
+        "...new Vpc2 in aws-cdk-lib...",
+        "new EshopDatabaseStack (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/lib/database-stack.ts:13:17)",
+        "<anonymous> (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/bin/infra.ts:17:23)",
+        "<anonymous> (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/bin/infra.ts:25:2)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/EshopDatabaseStack/EshopVpc/isolatedSubnet1/Subnet": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "EshopVpcisolatedSubnet1Subnet851CD172"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        ".../Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:291 in aws-cdk-lib...",
+        "Array.forEach (:)",
+        "...aws-cdk-lib..."
+      ]
+    }
+  ],
+  "/EshopDatabaseStack/EshopVpc/isolatedSubnet1/RouteTable": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "EshopVpcisolatedSubnet1RouteTableEEF3CA43"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        ".../Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:291 in aws-cdk-lib...",
+        "Array.forEach (:)",
+        "...aws-cdk-lib..."
+      ]
+    }
+  ],
+  "/EshopDatabaseStack/EshopVpc/isolatedSubnet1/RouteTableAssociation": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "EshopVpcisolatedSubnet1RouteTableAssociation06D76580"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        ".../Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:291 in aws-cdk-lib...",
+        "Array.forEach (:)",
+        "...aws-cdk-lib..."
+      ]
+    }
+  ],
+  "/EshopDatabaseStack/EshopVpc/isolatedSubnet2/Subnet": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "EshopVpcisolatedSubnet2Subnet8F710A31"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        ".../Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:291 in aws-cdk-lib...",
+        "Array.forEach (:)",
+        "...aws-cdk-lib..."
+      ]
+    }
+  ],
+  "/EshopDatabaseStack/EshopVpc/isolatedSubnet2/RouteTable": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "EshopVpcisolatedSubnet2RouteTable7DE45E22"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        ".../Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:291 in aws-cdk-lib...",
+        "Array.forEach (:)",
+        "...aws-cdk-lib..."
+      ]
+    }
+  ],
+  "/EshopDatabaseStack/EshopVpc/isolatedSubnet2/RouteTableAssociation": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "EshopVpcisolatedSubnet2RouteTableAssociation7A14555A"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        ".../Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:291 in aws-cdk-lib...",
+        "Array.forEach (:)",
+        "...aws-cdk-lib..."
+      ]
+    }
+  ],
+  "/EshopDatabaseStack/EshopVpc/RestrictDefaultSecurityGroupCustomResource/Default": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "EshopVpcRestrictDefaultSecurityGroupCustomResource38377F20"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Vpc2 in aws-cdk-lib...",
+        "new EshopDatabaseStack (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/lib/database-stack.ts:13:17)",
+        "<anonymous> (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/bin/infra.ts:17:23)",
+        "<anonymous> (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/bin/infra.ts:25:2)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/EshopDatabaseStack/AuroraCluster/Subnets/Default": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "AuroraClusterSubnetsF3E9E6AD"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new DatabaseCluster2 in aws-cdk-lib...",
+        "new EshopDatabaseStack (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/lib/database-stack.ts:43:21)",
+        "<anonymous> (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/bin/infra.ts:17:23)",
+        "<anonymous> (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/bin/infra.ts:25:2)",
+        "...node internals, tsx..."
+      ]
+    }
+  ],
+  "/EshopDatabaseStack/AuroraCluster/Secret/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "EshopDatabaseStackAuroraClusterSecretA5376CD73fdaad7efa858a3daf9490cf0a702aeb"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new DatabaseCluster2 in aws-cdk-lib...",
+        "new EshopDatabaseStack (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/lib/database-stack.ts:43:21)",
+        "<anonymous> (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/bin/infra.ts:17:23)"
+      ]
+    }
+  ],
+  "/EshopDatabaseStack/AuroraCluster/Secret/Attachment": [
+    {
+      "type": "aws:cdk:analytics:construct",
+      "data": {
+        "secret": "*",
+        "target": "*"
+      }
+    }
+  ],
+  "/EshopDatabaseStack/AuroraCluster/writer/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "AuroraClusterwriter499C523E"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new DatabaseCluster2 in aws-cdk-lib...",
+        "new EshopDatabaseStack (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/lib/database-stack.ts:43:21)",
+        "<anonymous> (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/bin/infra.ts:17:23)",
+        "<anonymous> (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/bin/infra.ts:25:2)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/EshopDatabaseStack/AuroraCluster/Secret/Attachment/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "AuroraClusterSecretAttachmentDB8032DA"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new DatabaseCluster2 in aws-cdk-lib...",
+        "new EshopDatabaseStack (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/lib/database-stack.ts:43:21)",
+        "<anonymous> (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/bin/infra.ts:17:23)",
+        "<anonymous> (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/bin/infra.ts:25:2)",
+        "...node internals, tsx..."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,277 @@
+{
+  "/EshopAuthStack": [
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "<anonymous> (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/bin/infra.ts:16:19)",
+        "<anonymous> (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/bin/infra.ts:25:2)",
+        "...node internals, tsx..."
+      ]
+    },
+    {
+      "type": "aws:cdk:templateFile",
+      "data": "EshopAuthStack.template.json"
+    }
+  ],
+  "/EshopAuthStack/UserPool": [
+    {
+      "type": "aws:cdk:analytics:construct",
+      "data": {
+        "userPoolName": "*",
+        "selfSignUpEnabled": true,
+        "signInAliases": {
+          "email": true
+        },
+        "autoVerify": {
+          "email": true
+        },
+        "standardAttributes": {},
+        "passwordPolicy": {
+          "minLength": "*",
+          "requireLowercase": true,
+          "requireUppercase": false,
+          "requireDigits": true,
+          "requireSymbols": false
+        },
+        "accountRecovery": 2,
+        "removalPolicy": "destroy"
+      }
+    }
+  ],
+  "/EshopAuthStack/GoogleProvider": [
+    {
+      "type": "aws:cdk:analytics:construct",
+      "data": "*"
+    }
+  ],
+  "/EshopAuthStack/SalesforceProvider": [
+    {
+      "type": "aws:cdk:analytics:construct",
+      "data": "*"
+    }
+  ],
+  "/EshopAuthStack/UserPoolClient": [
+    {
+      "type": "aws:cdk:analytics:construct",
+      "data": {
+        "userPool": "*",
+        "userPoolClientName": "*",
+        "generateSecret": false,
+        "authFlows": {
+          "userPassword": true,
+          "userSrp": true
+        },
+        "oAuth": {
+          "flows": {
+            "authorizationCodeGrant": true
+          },
+          "scopes": "*",
+          "callbackUrls": "*",
+          "logoutUrls": "*"
+        },
+        "supportedIdentityProviders": "*"
+      }
+    }
+  ],
+  "/EshopAuthStack/UserPoolId": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "UserPoolId"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "new EshopAuthStack (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/lib/auth-stack.ts:101:5)",
+        "<anonymous> (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/bin/infra.ts:16:19)",
+        "<anonymous> (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/bin/infra.ts:25:2)",
+        "...node internals, tsx..."
+      ]
+    }
+  ],
+  "/EshopAuthStack/UserPoolClientId": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "UserPoolClientId"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "new EshopAuthStack (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/lib/auth-stack.ts:102:5)",
+        "<anonymous> (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/bin/infra.ts:16:19)",
+        "<anonymous> (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/bin/infra.ts:25:2)",
+        "...node internals, tsx..."
+      ]
+    }
+  ],
+  "/EshopAuthStack/CognitoDomain": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "CognitoDomain"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "new EshopAuthStack (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/lib/auth-stack.ts:103:5)",
+        "<anonymous> (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/bin/infra.ts:16:19)",
+        "<anonymous> (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/bin/infra.ts:25:2)",
+        "...node internals, tsx..."
+      ]
+    }
+  ],
+  "/EshopAuthStack/BootstrapVersion": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "BootstrapVersion"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...aws-cdk-lib...",
+        "(no user code in 10 frames, use --stack-trace-limit to capture more)"
+      ]
+    }
+  ],
+  "/EshopAuthStack/CheckBootstrapVersion": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "CheckBootstrapVersion"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...aws-cdk-lib...",
+        "(no user code in 10 frames, use --stack-trace-limit to capture more)"
+      ]
+    }
+  ],
+  "/EshopAuthStack/UserPool/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "UserPool6BA7E5F2"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new UserPool2 in aws-cdk-lib...",
+        "new EshopAuthStack (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/lib/auth-stack.ts:12:21)",
+        "<anonymous> (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/bin/infra.ts:16:19)",
+        "<anonymous> (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/bin/infra.ts:25:2)",
+        "...node internals, tsx..."
+      ]
+    }
+  ],
+  "/EshopAuthStack/UserPool/UserPoolDomain": [
+    {
+      "type": "aws:cdk:analytics:construct",
+      "data": {
+        "userPool": "*",
+        "cognitoDomain": {
+          "domainPrefix": "*"
+        }
+      }
+    }
+  ],
+  "/EshopAuthStack/GoogleProvider/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "GoogleProvider566D8493"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new UserPoolIdentityProviderGoogle2 in aws-cdk-lib...",
+        "new EshopAuthStack (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/lib/auth-stack.ts:33:28)",
+        "<anonymous> (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/bin/infra.ts:16:19)",
+        "<anonymous> (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/bin/infra.ts:25:2)",
+        "...node internals, tsx..."
+      ]
+    }
+  ],
+  "/EshopAuthStack/SalesforceProvider/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "SalesforceProvider0045A0F4"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new UserPoolIdentityProviderOidc2 in aws-cdk-lib...",
+        "new EshopAuthStack (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/lib/auth-stack.ts:47:32)",
+        "<anonymous> (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/bin/infra.ts:16:19)",
+        "<anonymous> (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/bin/infra.ts:25:2)",
+        "...node internals, tsx..."
+      ]
+    }
+  ],
+  "/EshopAuthStack/UserPoolClient/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "UserPoolClient2F5918F7"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new UserPoolClient2 in aws-cdk-lib...",
+        "new EshopAuthStack (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/lib/auth-stack.ts:67:27)",
+        "<anonymous> (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/bin/infra.ts:16:19)",
+        "<anonymous> (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/bin/infra.ts:25:2)",
+        "...node internals, tsx..."
+      ]
+    }
+  ],
+  "/EshopAuthStack/CDKMetadata/Default": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "CDKMetadata"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...aws-cdk-lib, node internals...",
+        "(no user code in 10 frames, use --stack-trace-limit to capture more)"
+      ]
+    }
+  ],
+  "/EshopAuthStack/Publish/Output{\"Ref\":\"UserPool6BA7E5F2\"}": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "PublishOutputRefUserPool6BA7E5F24B752AC8"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...aws-cdk-lib, node internals...",
+        "(no user code in 10 frames, use --stack-trace-limit to capture more)"
+      ]
+    }
+  ],
+  "/EshopAuthStack/Publish/Output{\"Ref\":\"UserPoolClient2F5918F7\"}": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "PublishOutputRefUserPoolClient2F5918F7ACB5B0E0"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...aws-cdk-lib, node internals...",
+        "(no user code in 10 frames, use --stack-trace-limit to capture more)"
+      ]
+    }
+  ],
+  "/EshopAuthStack/UserPool/UserPoolDomain/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "UserPoolUserPoolDomain9F01E991"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...PropertyInjectable.addDomain in aws-cdk-lib...",
+        "new EshopAuthStack (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/lib/auth-stack.ts:61:42)",
+        "<anonymous> (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/bin/infra.ts:16:19)",
+        "<anonymous> (/Users/llisen/Workspaces/playground/lisen-eshop-playground/infra/bin/infra.ts:25:2)",
+        "...node internals, tsx..."
+      ]
+    }
+  ]
+}

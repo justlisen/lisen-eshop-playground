@@ -1,0 +1,21 @@
+{
+  "version": "55.0.0",
+  "files": {
+    "7ff28a8b7e7e74f72c9c510b9cbb26ed15ef685238eca0352b4e12a5554c9355": {
+      "displayName": "EshopAuthStack Template",
+      "source": {
+        "path": "EshopAuthStack.template.json",
+        "packaging": "file"
+      },
+      "destinations": {
+        "237725356452-ap-southeast-1-e2f810d5": {
+          "bucketName": "cdk-hnb659fds-assets-237725356452-ap-southeast-1",
+          "objectKey": "7ff28a8b7e7e74f72c9c510b9cbb26ed15ef685238eca0352b4e12a5554c9355.json",
+          "region": "ap-southeast-1",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::237725356452:role/cdk-hnb659fds-file-publishing-role-237725356452-ap-southeast-1"
+        }
+      }
+    }
+  },
+  "dockerImages": {}
+}
