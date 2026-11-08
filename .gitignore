@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# prisma generated migrations (keep schema, ignore local migrations)
+# prisma/migrations/
