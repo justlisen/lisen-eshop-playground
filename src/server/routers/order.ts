@@ -1,4 +1,5 @@
 import { z } from "zod";
+import type { Product } from "@prisma/client";
 import { router, protectedProcedure } from "@/server/trpc";
 
 export const orderRouter = router({
@@ -11,23 +12,23 @@ export const orderRouter = router({
       })
     )
     .mutation(async ({ ctx, input }) => {
-      const products = await ctx.prisma.product.findMany({
+      const dbProducts: Product[] = await ctx.prisma.product.findMany({
         where: { id: { in: input.items.map((i) => i.productId) } },
       });
 
-      const total = input.items.reduce((sum, item) => {
-        const product = products.find((p) => p.id === item.productId)!;
+      const orderTotal = input.items.reduce((sum, item) => {
+        const product = dbProducts.find((p) => p.id === item.productId)!;
         return sum + Number(product.price) * item.quantity;
       }, 0);
 
       return ctx.prisma.order.create({
         data: {
-          userId: ctx.session.user.id,
-          total,
+          userId: ctx.session.user.id!,
+          total: orderTotal,
           status: "MOCK_PAID",
           items: {
             create: input.items.map((item) => {
-              const product = products.find((p) => p.id === item.productId)!;
+              const product = dbProducts.find((p) => p.id === item.productId)!;
               return {
                 productId: item.productId,
                 quantity: item.quantity,
@@ -42,7 +43,7 @@ export const orderRouter = router({
 
   myOrders: protectedProcedure.query(({ ctx }) => {
     return ctx.prisma.order.findMany({
-      where: { userId: ctx.session.user.id },
+      where: { userId: ctx.session.user.id! },
       include: { items: { include: { product: true } } },
       orderBy: { createdAt: "desc" },
     });

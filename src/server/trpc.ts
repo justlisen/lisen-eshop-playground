@@ -1,4 +1,5 @@
 import { initTRPC, TRPCError } from "@trpc/server";
+import type { Session } from "next-auth";
 import { auth } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 
@@ -11,9 +12,14 @@ const t = initTRPC.context<typeof createTRPCContext>().create();
 
 export const router = t.router;
 export const publicProcedure = t.procedure;
+
+type AuthedSession = Session & { user: NonNullable<Session["user"]> & { id: string } };
+
 export const protectedProcedure = t.procedure.use(({ ctx, next }) => {
-  if (!ctx.session?.user) {
+  if (!ctx.session?.user?.id) {
     throw new TRPCError({ code: "UNAUTHORIZED" });
   }
-  return next({ ctx: { ...ctx, session: ctx.session } });
+  return next({
+    ctx: { ...ctx, session: ctx.session as AuthedSession },
+  });
 });
