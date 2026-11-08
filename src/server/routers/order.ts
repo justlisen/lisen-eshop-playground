@@ -1,5 +1,4 @@
 import { z } from "zod";
-import type { Product } from "@prisma/client";
 import { router, protectedProcedure } from "@/server/trpc";
 
 export const orderRouter = router({
@@ -12,7 +11,7 @@ export const orderRouter = router({
       })
     )
     .mutation(async ({ ctx, input }) => {
-      const dbProducts: Product[] = await ctx.prisma.product.findMany({
+      const dbProducts = await ctx.prisma.product.findMany({
         where: { id: { in: input.items.map((i) => i.productId) } },
       });
 
